@@ -1,6 +1,37 @@
+@import "_variables";
+@import "_mixins";
+@import "_buttons";
+
 body {
-  background: peru;
-  a {
-    color: blue;
+  background: $bg;
+}
+
+div a {
+  margin-bottom: 10px;
+  &:nth-child(odd) {
+    @include link("odd");
+  }
+  &:nth-child(even) {
+    @include link("even");
+  }
+}
+p a {
+  @extend %button;
+  text-decoration: none;
+}
+p button {
+  @extend %button;
+  border: 0 none;
+}
+h1 {
+  color: red;
+  @include responsive("iphone") {
+    color: yellow;
+  }
+  @include responsive("iphone-l") {
+    font-size: 60px;
+  }
+  @include responsive("tablet") {
+    color: green;
   }
 }
